@@ -32,7 +32,9 @@ jobs:
 
       - name: Create credentials.json from Secret
         run: |
-          echo "${{ secrets.CREDENTIALS_JSON }}" > credentials.json
+          cat > credentials.json <<'EOF'
+          ${{ secrets.CREDENTIALS_JSON }}
+          EOF
 
       - name: Run Cards Pipeline
         run: |
