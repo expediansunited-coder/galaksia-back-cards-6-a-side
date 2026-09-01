@@ -51,7 +51,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           # Stage all generated PNG images in the output folder
-          git add output/player_cards/*.png
+          git add output/players_cards/*.png
           
           # Check if there are actual updates to commit
           if git diff --staged --quiet; then
