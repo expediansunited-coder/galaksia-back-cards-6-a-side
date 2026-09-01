@@ -31,7 +31,7 @@ TEXT_COLOR = (255, 255, 255)
 STROKE_COLOR = (0, 0, 0)
 
 X_COLS = [0.135, 0.380, 0.620, 0.865]
-LABEL_Y_ROWS = [0.523, 0.0.640, 0.752, 0.867]
+LABEL_Y_ROWS = [0.523, 0.640, 0.752, 0.867]
 _gaps = [LABEL_Y_ROWS[i+1] - LABEL_Y_ROWS[i] for i in range(len(LABEL_Y_ROWS)-1)]
 _avg_gap = sum(_gaps) / len(_gaps)
 
