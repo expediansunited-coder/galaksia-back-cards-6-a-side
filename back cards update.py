@@ -274,7 +274,7 @@ def generate_and_save_card(drive, norm_name, display_name, bg_map, font_path, da
 
         card_img = build_card(bg_bytes, font_path, s_stats, a_stats, is_gk)
         safe_filename = a_stats['name'].strip()
-        out_path = os.path.join(OUTPUT_DIR, f"{safe_filename}_card.png")
+        out_path = os.path.join(OUTPUT_DIR, f"{safe_filename}.png")
         card_img.save(out_path, 'PNG', quality=95)
         return out_path
     except Exception as err:
