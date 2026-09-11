@@ -2,6 +2,7 @@ import io
 import os
 import re
 import unicodedata
+import shutil
 
 from PIL import Image, ImageDraw, ImageFont
 import gspread
@@ -285,14 +286,16 @@ def generate_and_save_card(drive, norm_name, display_name, bg_map, font_path, da
 # PRODUCTION PIPELINE
 # ============================================================
 def run_player_cards_pipeline():
-    if os.path.exists(OUTPUT_DIR):
-        for root, dirs, files in os.walk(OUTPUT_DIR, topdown=False):
-            for name in files:
-                os.remove(os.path.join(root, name))
-            for name in dirs:
-                os.rmdir(os.path.join(root, name))
-    else:
-        os.makedirs(OUTPUT_DIR, exist_ok=True)
+    output_dir_abs = os.path.abspath(OUTPUT_DIR)
+
+    print(f"Cleaning output folder before starting: {output_dir_abs}")
+
+    if os.path.exists(output_dir_abs):
+        shutil.rmtree(output_dir_abs)
+
+    os.makedirs(output_dir_abs, exist_ok=True)
+
+    print("Output folder cleaned.")
 
     print("Connecting to Google Services (Service Account)...")
     client = get_gspread_client()
