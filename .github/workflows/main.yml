@@ -3,7 +3,7 @@ name: Daily Player Cards Generation
 on:
   schedule:
     # Runs everyday at 13:00 UTC (15:00 Prague Time during Summer / 14:00 in Winter)
-    - cron: '0 13 * * *'
+    - cron: '17 13 * * *'
   workflow_dispatch:
     # Allows manual triggering from the GitHub Actions UI tab anytime
 
